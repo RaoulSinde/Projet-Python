@@ -1,10 +1,10 @@
 # Projet-Python
 Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d’Investissement <br> Date limite - 28 avril
 
-Qu’est-ce qu’un Backtest ?
+**Qu’est-ce qu’un Backtest ?**
 Un backtest est une méthode utilisée dans le domaine de la finance pour évaluer la viabilité et la performance d’une stratégie d’investissement. Cette technique implique de simuler la manière dont une stratégie aurait performé en utilisant des données historiques. Le but est de fournir un aperçu de la façon dont une stratégie aurait réagi dans différentes conditions de marché passées.
 
-Importance du Backtest
+**Importance du Backtest**
 Évaluation des Stratégies : Le backtest permet aux traders et aux investisseurs de tester leurs stratégies sur des données passées avant de les appliquer dans des conditions réelles de marché. C’est un outil essentiel pour identifier les forces et les faiblesses d’une stratégie avant son déploiement.
 Réduction des Risques : En testant une stratégie sur des données historiques, les investisseurs peuvent mieux comprendre et gérer les risques potentiels.
 Optimisation des Stratégies : Les résultats d’un backtest peuvent être utilisés pour affiner et améliorer une stratégie, en ajustant ses paramètres pour maximiser les rendements potentiels.
@@ -17,7 +17,7 @@ Changements du Marché : Les conditions de marché évoluent constamment, et une
 Objectif du Projet
 Développer un backtester sous forme de classe, qui utilise une fonction prenant en entrée un historique de barres OHLCV (Open, High, Low, Close, Volume) et renvoyant la position d’une stratégie d’investissement.
 
-Objectifs et Applications du Projet
+**Objectifs et Applications du Projet**
 
 Pour 2 Personnes :
 
