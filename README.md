@@ -18,23 +18,28 @@ Objectif du Projet
 Développer un backtester sous forme de classe, qui utilise une fonction prenant en entrée un historique de barres OHLCV (Open, High, Low, Close, Volume) et renvoyant la position d’une stratégie d’investissement.
 
 Objectifs et Applications du Projet
+
 Pour 2 Personnes :
 
 Stockage Local des Données : Les données seront stockées localement et incluses dans le projet pour faciliter les tests.
 Analyse d’Un Actif : Le backtester se concentrera sur un seul actif avec des positions variant entre -100% et 100%.
 Résultats : Génération d’un graphique représentant la performance de la stratégie sur la période choisie, accompagné de statistiques de base telles que le rendement moyen, la variance, et le bêta.
+
 Pour 3 Personnes (Option A) :
 
 Stratégie sur Plusieurs Actifs : Extension du backtester pour accepter une fonction de stratégie applicable à plusieurs actifs.
 Statistiques Avancées : Calcul de statistiques plus élaborées comme le bêta en hausse et en baisse, le drawdown maximal, s’inspirant de sources telles que Quantalys ou Morningstar.
+
 OU
 
 Pour 3 Personnes (Option B) :
 
 Téléchargement et Cache Asynchrone : Mise en place d’un système pour le téléchargement et le stockage en cache des données de manière asynchrone.
+
 Pour 4 Personnes :
 
 Combinaison des points mentionnés dans les options pour 3 personnes (Option A et B).
+
 Pour 5 Personnes :
 
 Intégration des Crypto-monnaies : Ajout de la capacité à analyser les stratégies impliquant des contrats dérivés perpétuels ou futurs.
