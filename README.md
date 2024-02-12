@@ -1,5 +1,6 @@
 # Projet-Python
-Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d’Investissement <br>
+Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d’Investissement
+
 Date limite - 28 avril
 
 Qu’est-ce qu’un Backtest ?
