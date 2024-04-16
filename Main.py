@@ -36,9 +36,9 @@ class Backtester:
         max_drawdown = max_drawdown.min()
         return downside_beta, max_drawdown
 
-# Exemple de fonction de stratégie
+# Fonction de stratégie
 def simple_strategy(data):
-    # Exemple de stratégie : Acheter si le prix de clôture est supérieur à la moyenne mobile simple sur 50 jours, sinon vendre.
+    # Stratégie consiste à acheter si le prix de clôture est supérieur à la moyenne mobile simple sur 50 jours, sinon vendre.
     data['SMA_50'] = data['Close'].rolling(window=50).mean()
     positions = np.where(data['Close'] > data['SMA_50'], 1, -1)
     return positions
