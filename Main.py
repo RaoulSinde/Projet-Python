@@ -44,7 +44,7 @@ def simple_strategy(data):
     return positions
 
 # Chargement des données (à remplacer par votre propre source de données)
-data = pd.read_csv('data.csv')  # Assurez-vous que le fichier 'data.csv' contient les colonnes OHLCV
+data = pd.read_csv('data.csv')  # Attention, le fichier 'data.csv' doit contenir les colonnes OHLCV
 
 # Création de l'instance du backtester
 backtester = Backtester(data)
