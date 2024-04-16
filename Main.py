@@ -12,8 +12,13 @@ class Backtester:
         return positions
     
     def calculate_returns(self, positions):
-        returns = self.data['Close'].pct_change() * positions.shift(1)
+        positions_df = pd.DataFrame(positions, index=self.data.index, columns=['Position'])
+        returns = self.data['Close'].pct_change() * positions_df['Position'].shift(1)
+        returns = returns.replace([np.inf, -np.inf], np.nan)  # Replace infinite values with NaN
+        returns = returns.dropna()  # Drop rows with NaN values
         return returns
+
+
     
     def calculate_basic_statistics(self, returns):
         mean_return = returns.mean()
@@ -44,7 +49,7 @@ def simple_strategy(data):
     return positions
 
 # Chargement des données (à remplacer par votre propre source de données)
-data = pd.read_csv('data.csv')  # Attention, le fichier 'data.csv' doit contenir les colonnes OHLCV
+data = pd.read_csv('C:/Users/alexa/Downloads/Kraken_OHLCVT/BTCUSD_Daily_OHLC.csv')  # Attention, le fichier 'data.csv' doit contenir les colonnes OHLCV
 
 # Création de l'instance du backtester
 backtester = Backtester(data)
