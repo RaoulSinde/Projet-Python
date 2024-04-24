@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import beta
 
-class Backtester:
+class Backtester: 
     url = "https://api.binance.com/api/v3/klines"
     
     def __init__(self, symbol, start_date, end_date):
