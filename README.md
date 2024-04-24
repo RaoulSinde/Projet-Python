@@ -6,7 +6,7 @@ On crée ensuite la classe Backtester. Cette classe est responsable du chargemen
 
 Pour la méthode load_data, on utilise ici l'API de Binance pour charger les données historiques de prix de la crypto-monnaie spécifiée dans l'intervalle de dates donné. 
 
-Dans la méthode run_strategy, on exécute notre stratégie de trading que nous expliquerons par la suite.
+Dans la méthode run_strategy, on exécute notre stratégie de trading que nous expliquerons par la suite. 
 
 Nous avons ensuite des méthodes pour le calcul des rendements et des statistiques. Ces méthodes sont calculate_returns, calculate_basic_statistics et calculate_advanced_statistics. Elles calculent respectivement les rendements, les statistiques de base (rendement moyen, variance, bêta) et les statistiques avancées (bêta en baisse, drawdown maximal) à partir des positions générées par la stratégie de trading. 
 
