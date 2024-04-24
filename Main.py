@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import beta
+from scipy.stats import beta 
 
 class Backtester: 
     url = "https://api.binance.com/api/v3/klines"
