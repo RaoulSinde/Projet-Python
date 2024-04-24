@@ -8,7 +8,7 @@ Pour la méthode load_data, on utilise ici l'API de Binance pour charger les don
 
 Dans la méthode run_strategy, on exécute notre stratégie de trading que nous expliquerons par la suite.
 
-Nous avons ensuite des méthodes pour le calcul des rendements et des statistiques. Ces méthodes sont calculate_returns, calculate_basic_statistics et calculate_advanced_statistics. Elles calculent respectivement les rendements, les statistiques de base (rendement moyen, variance, bêta) et les statistiques avancées (bêta en baisse, drawdown maximal) à partir des positions générées par la stratégie de trading.
+Nous avons ensuite des méthodes pour le calcul des rendements et des statistiques. Ces méthodes sont calculate_returns, calculate_basic_statistics et calculate_advanced_statistics. Elles calculent respectivement les rendements, les statistiques de base (rendement moyen, variance, bêta) et les statistiques avancées (bêta en baisse, drawdown maximal) à partir des positions générées par la stratégie de trading. 
 
 Nous avons une dernière méthode qui génère un graphique de performance montrant les rendements cumulatifs de la stratégie nommée generate_performance_chart.
 
