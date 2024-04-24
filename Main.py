@@ -73,7 +73,7 @@ def simple_strategy(data):
 # Demander à l'utilisateur de saisir le symbole de la crypto-monnaie
 symbol = input("Entrez le symbole de la crypto-monnaie (par exemple, BTCUSDT): ")
 
-# Paramètres de date
+# Paramètres de date 
 start_date = '2022-01-01'
 end_date = '2023-01-01'
 
