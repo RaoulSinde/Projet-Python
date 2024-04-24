@@ -92,7 +92,7 @@ mean_return, variance, beta_value = backtester.calculate_basic_statistics(return
 # Affichage des statistiques de base
 print("Rendement moyen:", mean_return)
 print("Variance:", variance)
-print("Bêta:", beta_value)
+print("Bêta:", beta_value) 
 
 # Génération du graphique de performance
 backtester.generate_performance_chart(returns)
