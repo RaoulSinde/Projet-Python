@@ -6,13 +6,14 @@ from scipy.stats import beta
 
 class Backtester: 
     url = "https://api.binance.com/api/v3/klines"
-    
+
     def __init__(self, symbol, start_date, end_date):
         self.symbol = symbol
         self.start_date = start_date
         self.end_date = end_date
         self.data = self.load_data()
-    
+
+    # Chargement données historiques
     def load_data(self): 
         params = {
             'symbol': self.symbol,
@@ -27,7 +28,8 @@ class Backtester:
         df.set_index('timestamp', inplace=True)
         df[['open', 'high', 'low', 'close', 'volume']] = df[['open', 'high', 'low', 'close', 'volume']].astype(float)
         return df 
-    
+
+    # Éxécution de la stratégie
     def run_strategy(self, strategy_func):
         positions = strategy_func(self.data)
         return positions
