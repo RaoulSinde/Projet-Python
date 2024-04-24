@@ -2,7 +2,7 @@ Ce code Python est un backtester pour évaluer les performances d'une stratégie
 
 Pour commencer nous importons les bibliothèques nécessaires telles que requests, pandas, numpy, matplotlib.pyplot et scipy.stats.
 
-On crée ensuite la classe Backtester. Cette classe est responsable du chargement des données historiques, de l'exécution de la stratégie de trading, du calcul des rendements et des statistiques, ainsi que de la génération de graphiques de performance.
+On crée ensuite la classe Backtester. Cette classe est responsable du chargement des données historiques, de l'exécution de la stratégie de trading, du calcul des rendements et des statistiques, ainsi que de la génération de graphiques de performance. 
 
 Pour la méthode load_data, on utilise ici l'API de Binance pour charger les données historiques de prix de la crypto-monnaie spécifiée dans l'intervalle de dates donné. 
 
