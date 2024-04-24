@@ -13,7 +13,7 @@ class Backtester:
         self.end_date = end_date
         self.data = self.load_data()
     
-    def load_data(self):
+    def load_data(self): 
         params = {
             'symbol': self.symbol,
             'interval': '1d',
