@@ -37,7 +37,7 @@ Résultats : Génération d’un graphique représentant la performance de la st
 Stratégie sur Plusieurs Actifs : Extension du backtester pour accepter une fonction de stratégie applicable à plusieurs actifs.
 Statistiques Avancées : Calcul de statistiques plus élaborées comme le bêta en hausse et en baisse, le drawdown maximal, s’inspirant de sources telles que Quantalys ou Morningstar.
 
-OU
+OU 
 
 **Pour 3 Personnes (Option B) :**
 
