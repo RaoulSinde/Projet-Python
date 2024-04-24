@@ -1,4 +1,4 @@
-Ce code Python est un backtester pour évaluer les performances d'une stratégie de trading sur des données historiques de prix de crypto-monnaies provenant de Binance. 
+Ce code Python est un backtester pour évaluer les performances d'une stratégie de trading sur des données historiques de prix de crypto-monnaies provenant de Binance.  
 
 Pour commencer nous importons les bibliothèques nécessaires telles que requests, pandas, numpy, matplotlib.pyplot et scipy.stats.
 
