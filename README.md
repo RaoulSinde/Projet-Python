@@ -4,7 +4,7 @@ Pour commencer nous importons les bibliothèques nécessaires telles que request
 
 On crée ensuite la classe Backtester. Cette classe est responsable du chargement des données historiques, de l'exécution de la stratégie de trading, du calcul des rendements et des statistiques, ainsi que de la génération de graphiques de performance.
 
-Pour la méthode load_data, on utilise ici l'API de Binance pour charger les données historiques de prix de la crypto-monnaie spécifiée dans l'intervalle de dates donné.
+Pour la méthode load_data, on utilise ici l'API de Binance pour charger les données historiques de prix de la crypto-monnaie spécifiée dans l'intervalle de dates donné. 
 
 Dans la méthode run_strategy, on exécute notre stratégie de trading que nous expliquerons par la suite.
 
