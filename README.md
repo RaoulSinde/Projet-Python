@@ -1,55 +1,19 @@
-# Consignes
-**Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d’Investissement** <br> Date limite - 28 avril
+Ce code Python est un backtester pour évaluer les performances d'une stratégie de trading sur des données historiques de prix de crypto-monnaies provenant de Binance. 
 
-**Qu’est-ce qu’un Backtest ?** <br>
-Un backtest est une méthode utilisée dans le domaine de la finance pour évaluer la viabilité et la performance d’une stratégie d’investissement. Cette technique implique de simuler la manière dont une stratégie aurait performé en utilisant des données historiques. Le but est de fournir un aperçu de la façon dont une stratégie aurait réagi dans différentes conditions de marché passées.
+Pour commencer nous importons les bibliothèques nécessaires telles que requests, pandas, numpy, matplotlib.pyplot et scipy.stats.
 
-**Importance du Backtest**
+On crée ensuite la classe Backtester. Cette classe est responsable du chargement des données historiques, de l'exécution de la stratégie de trading, du calcul des rendements et des statistiques, ainsi que de la génération de graphiques de performance.
 
-**Évaluation des Stratégies :** Le backtest permet aux traders et aux investisseurs de tester leurs stratégies sur des données passées avant de les appliquer dans des conditions réelles de marché. C’est un outil essentiel pour identifier les forces et les faiblesses d’une stratégie avant son déploiement.
+Pour la méthode load_data, on utilise ici l'API de Binance pour charger les données historiques de prix de la crypto-monnaie spécifiée dans l'intervalle de dates donné.
 
-**Réduction des Risques :** En testant une stratégie sur des données historiques, les investisseurs peuvent mieux comprendre et gérer les risques potentiels.
+Dans la méthode run_strategy, on exécute notre stratégie de trading que nous expliquerons par la suite.
 
-**Optimisation des Stratégies :** Les résultats d’un backtest peuvent être utilisés pour affiner et améliorer une stratégie, en ajustant ses paramètres pour maximiser les rendements potentiels.
+Nous avons ensuite des méthodes pour le calcul des rendements et des statistiques. Ces méthodes sont calculate_returns, calculate_basic_statistics et calculate_advanced_statistics. Elles calculent respectivement les rendements, les statistiques de base (rendement moyen, variance, bêta) et les statistiques avancées (bêta en baisse, drawdown maximal) à partir des positions générées par la stratégie de trading.
 
-**Limites du Backtest**
+Nous avons une dernière méthode qui génère un graphique de performance montrant les rendements cumulatifs de la stratégie nommée generate_performance_chart.
 
-Bien que le backtest soit un outil puissant, il est important de reconnaître ses limites. Les résultats d’un backtest sont toujours basés sur des hypothèses et des simulations, et ne peuvent garantir des performances futures. Les limitations clés incluent :
+Nous arrivons à présent à la fonction simple_strategy. Cette fonction implémente une stratégie de trading simple basée sur la moyenne mobile sur 10 jours (SMA_10) du crypto-actif. Elle génère des signaux d'achat (1), de vente (-1) ou de non-intervention (0) en fonction de la relation du prix par rapport à SMA_10.
 
-**Hypothèses de Simulation :** Un backtest repose sur des hypothèses qui peuvent ne pas être entièrement représentatives des conditions réelles du marché.
+Nous demandons ensuite à l'utilisateur est invité à entrer le symbole de la crypto-monnaie pour laquelle il souhaite tester la stratégie. Une instance de la classe Backtester est créée ensuite avec le symbole de la crypto-monnaie et les dates spécifiées.
 
-**Biais de Survie :** Les données historiques peuvent exclure les actifs ou stratégies qui ont échoué dans le passé, conduisant à une perception faussée de la performance.
-
-**Changements du Marché :** Les conditions de marché évoluent constamment, et une stratégie qui a réussi dans le passé pourrait ne pas être aussi efficace dans le futur en raison de changements dans les dynamiques du marché.
-Objectif du Projet
-Développer un backtester sous forme de classe, qui utilise une fonction prenant en entrée un historique de barres OHLCV (Open, High, Low, Close, Volume) et renvoyant la position d’une stratégie d’investissement.
-
-**Objectifs et Applications du Projet**
-
-**Pour 2 Personnes :**
-
-Stockage Local des Données : Les données seront stockées localement et incluses dans le projet pour faciliter les tests.
-Analyse d’Un Actif : Le backtester se concentrera sur un seul actif avec des positions variant entre -100% et 100%.
-Résultats : Génération d’un graphique représentant la performance de la stratégie sur la période choisie, accompagné de statistiques de base telles que le rendement moyen, la variance, et le bêta.
-
-**Pour 3 Personnes (Option A) :**
-
-Stratégie sur Plusieurs Actifs : Extension du backtester pour accepter une fonction de stratégie applicable à plusieurs actifs.
-Statistiques Avancées : Calcul de statistiques plus élaborées comme le bêta en hausse et en baisse, le drawdown maximal, s’inspirant de sources telles que Quantalys ou Morningstar.
-
-OU 
-
-**Pour 3 Personnes (Option B) :**
-
-Téléchargement et Cache Asynchrone : Mise en place d’un système pour le téléchargement et le stockage en cache des données de manière asynchrone.
-
-**Pour 4 Personnes :**
-
-Combinaison des points mentionnés dans les options pour 3 personnes (Option A et B).
-
-**Pour 5 Personnes :**
-
-Intégration des Crypto-monnaies : Ajout de la capacité à analyser les stratégies impliquant des contrats dérivés perpétuels ou futurs.
-Spécificités des Dérivés :
-Pour les contrats perpétuels, le calcul inclura le coût du taux de financement.
-Pour les contrats futurs, le calcul se basera sur le rollover, en utilisant le VWAP (Volume Weighted Average Price) sur une journée comme prix de rollover.
+Finalement, la stratégie est exécutée, les rendements sont calculés et les statistiques (de base et avancées) sont calculées et affichées. Nous générons aussi un graphique montrant les rendements cumulatifs de la stratégie est généré et affiché.
