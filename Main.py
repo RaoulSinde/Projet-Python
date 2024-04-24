@@ -33,7 +33,8 @@ class Backtester:
     def run_strategy(self, strategy_func):
         positions = strategy_func(self.data)
         return positions
-    
+
+    # Calculer rentabilité
     def calculate_returns(self, positions):
         positions_df = pd.DataFrame(positions, index=self.data.index, columns=['Position'])
         returns = self.data['close'].pct_change() * positions_df['Position'].shift(1)
