@@ -26,7 +26,7 @@ class Backtester:
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
         df.set_index('timestamp', inplace=True)
         df[['open', 'high', 'low', 'close', 'volume']] = df[['open', 'high', 'low', 'close', 'volume']].astype(float)
-        return df
+        return df 
     
     def run_strategy(self, strategy_func):
         positions = strategy_func(self.data)
