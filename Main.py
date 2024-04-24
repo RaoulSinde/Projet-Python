@@ -42,12 +42,14 @@ class Backtester:
         returns = returns.dropna()  
         return returns
 
+    # Calculer statistiques
     def calculate_basic_statistics(self, returns):
         mean_return = returns.mean()
         variance = returns.var()
         beta_value = beta.fit(returns)[0]
         return mean_return, variance, beta_value
-    
+
+    # Génération du graphique
     def generate_performance_chart(self, returns):
         cumulative_returns = (1 + returns).cumprod() - 1
         cumulative_returns.plot(figsize=(10, 6))
@@ -56,7 +58,8 @@ class Backtester:
         plt.ylabel('Rendement cumulatif')
         plt.grid(True)
         plt.show()
-    
+
+    # Calculer statistiques avancées
     def calculate_advanced_statistics(self, returns):
         downside_beta = beta.fit(returns[returns < 0])[0]
         max_drawdown = (1 + returns).cumprod().div((1 + returns).cumprod().cummax()) - 1
