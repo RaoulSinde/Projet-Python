@@ -58,7 +58,7 @@ def generate_performance_chart(returns):
     cumulative_returns.plot(figsize=(10, 6))
     plt.title('Performance de la stratégie')
     plt.xlabel('Date')
-    plt.ylabel('Rendement cumulatif')
+    plt.ylabel('Rendement cumulé')
     plt.grid(True)
     plt.show()
 
@@ -81,7 +81,10 @@ def simple_strategy(data):
 
 
 # Demander à l'utilisateur de saisir le symbole de la crypto-monnaie
-symbol = input("Entrez le symbole de la crypto-monnaie (par exemple, BTCUSDT): ")
+# et qui prend USDT en seconde valeur de la paire par défaut
+symbol = input("Entrez le symbole de la crypto-monnaie (par exemple, BTC): ") + "USDT"
+
+print("Vous allez sélectionner les dates : préférez un intervalle moyen/long terme")
 
 
 class BacktestExecution:
@@ -89,19 +92,19 @@ class BacktestExecution:
     def __init__(self, root):
         # Construction de la fenêtre qui affiche les calendriers pour la sélection des dates
         self.root = root
-        self.root.title("Date Selector")
+        self.root.title("Sélection des dates")
 
-        self.start_date_label = ttk.Label(root, text="Start Date:")
+        self.start_date_label = ttk.Label(root, text="Date de début :")
         self.start_date_label.grid(row=0, column=0, padx=10, pady=5)
         self.start_date_calendar = Calendar(root, selectmode='day', date_pattern='yyyy-mm-dd')
         self.start_date_calendar.grid(row=0, column=1, padx=10, pady=5)
 
-        self.end_date_label = ttk.Label(root, text="End Date:")
+        self.end_date_label = ttk.Label(root, text="Date de fin :")
         self.end_date_label.grid(row=1, column=0, padx=10, pady=5)
         self.end_date_calendar = Calendar(root, selectmode='day', date_pattern='yyyy-mm-dd')
         self.end_date_calendar.grid(row=1, column=1, padx=10, pady=5)
 
-        self.submit_button = ttk.Button(root, text="Submit", command=self.submit_dates_run)
+        self.submit_button = ttk.Button(root, text="Confirmer", command=self.submit_dates_run)
         self.submit_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
     def submit_dates_run(self):
