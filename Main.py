@@ -9,15 +9,26 @@ from tkcalendar import Calendar
 
 
 class Backtester:
+    """
+        Cette classe est responsable du chargement des données historiques, de l'exécution de la stratégie de trading, 
+        du calcul des rendements et des statistiques, ainsi que de la génération de graphiques de performance.
+    """
     url = "https://api.binance.com/api/v3/klines"
 
     def __init__(self, symbol, start_date, end_date):
+        """
+        Initialisation des différents attributs de la classe.
+        """
         self.symbol = symbol
         self.start_date = start_date
         self.end_date = end_date
         self.data = self.load_data()
 
     def load_data(self):
+        """
+        Cette fonction utilise l'API de Binance pour charger les données historiques de prix de la crypto-monnaie spécifiée 
+        dans l'intervalle de dates donné.
+        """
         params = {
             'symbol': self.symbol,
             'interval': '1d',
@@ -35,10 +46,16 @@ class Backtester:
         return df
 
     def run_strategy(self, strategy_func):
+        """
+        Cette fonction exécute la stratégie de trading définie plus loin sur les données historiques récupérées.
+        """
         positions = strategy_func(self.data)
         return positions
 
     def calculate_returns(self, positions):
+        """
+        Cette fonction calcule les rendements en fonction des positions prises par la stratégie de trading.
+        """
         positions_df = pd.DataFrame(positions, index=self.data.index, columns=['Position'])
         returns = self.data['close'].pct_change() * positions_df['Position'].shift(1)
         returns = returns.replace([np.inf, -np.inf], np.nan)
@@ -47,6 +64,9 @@ class Backtester:
 
 
 def calculate_basic_statistics(returns):
+    """
+    Cette fonction calcule des statistiques de base telles que le rendement moyen, la variance et le bêta à partir des rendements générés.
+    """
     mean_return = returns.mean()
     variance = returns.var()
     beta_value = beta.fit(returns)[0]
@@ -54,6 +74,9 @@ def calculate_basic_statistics(returns):
 
 
 def generate_performance_chart(returns):
+    """
+    Cette fonction génère un graphique de performance montrant les rendements cumulés de la stratégie de trading.
+    """
     cumulative_returns = (1 + returns).cumprod() - 1
     cumulative_returns.plot(figsize=(10, 6))
     plt.title('Performance de la stratégie')
@@ -64,6 +87,9 @@ def generate_performance_chart(returns):
 
 
 def calculate_advanced_statistics(returns):
+    """
+    Cette fonction calcule des statistiques avancées telles que le bêta en baisse et le drawdown maximal à partir des rendements générés.
+    """
     downside_beta = beta.fit(returns[returns < 0])[0]
     max_drawdown = (1 + returns).cumprod().div((1 + returns).cumprod().cummax()) - 1
     max_drawdown = max_drawdown.min()
@@ -72,6 +98,9 @@ def calculate_advanced_statistics(returns):
 
 # Fonction de stratégie
 def simple_strategy(data):
+    """
+    Cette fonction implémente une stratégie de trading simple basée sur la moyenne mobile sur 10 jours (SMA_10) du crypto-actif.
+    """
     data['SMA_10'] = data['close'].rolling(window=10).mean()  # Utiliser la SMA sur 10 jours
     distance_from_sma = data['close'] - data['SMA_10']
     long_condition = data['close'] > data['SMA_10'] * 1.10  # Entrer en long lorsque le prix est 10% > SMA 10
@@ -81,14 +110,17 @@ def simple_strategy(data):
 
 
 # Demander à l'utilisateur de saisir le symbole de la crypto-monnaie
-# et qui prend USDT en seconde valeur de la paire par défaut
+# et prend USDT en seconde valeur de la paire par défaut
 symbol = input("Entrez le symbole de la crypto-monnaie (par exemple, BTC): ") + "USDT"
 
 print("Vous allez sélectionner les dates : préférez un intervalle moyen/long terme")
 
 
 class BacktestExecution:
-    # Classe qui permet de récupérer l'intervalle de temps de test de la stratégie et de mettre en route le backtester
+    """
+    Cette classe gère l'interface utilisateur pour sélectionner les dates de début et de fin de l'intervalle de test. 
+    Elle permet aussi de mettre en route le backtest.
+    """
     def __init__(self, root):
         # Construction de la fenêtre qui affiche les calendriers pour la sélection des dates
         self.root = root
@@ -108,7 +140,10 @@ class BacktestExecution:
         self.submit_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
     def submit_dates_run(self):
-        # Affectation des dates choisies par l'utilisateur aux variables correspondantes
+        """
+        Cette fonction est déclenchée lorsque l'utilisateur clique sur le bouton "Confirmer" pour soumettre les dates sélectionnées.
+        C'est le bloc d'exécution du backtest.
+        """
         start_date = self.start_date_calendar.get_date()
         end_date = self.end_date_calendar.get_date()
 
@@ -144,3 +179,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = BacktestExecution(root)
     root.mainloop()
+
+
